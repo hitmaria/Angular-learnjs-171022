@@ -1,0 +1,85 @@
+{
+	"root": true,
+	"ignorePatterns": ["projects/**/*"],
+	"overrides": [
+		{
+			"files": ["*.ts"],
+			"parserOptions": {
+				"project": ["tsconfig.json"],
+				"createDefaultProgram": true
+			},
+			"extends": [
+				"plugin:@angular-eslint/recommended",
+				"plugin:@angular-eslint/template/process-inline-templates"
+			],
+			"rules": {
+				"@angular-eslint/directive-selector": [
+					"error",
+					{
+						"type": "attribute",
+						"prefix": "app",
+						"style": "camelCase"
+					}
+				],
+				"@angular-eslint/component-selector": [
+					"error",
+					{
+						"type": "element",
+						"prefix": "app",
+						"style": "kebab-case"
+					}
+				],
+				"@typescript-eslint/naming-convention": [
+					"error",
+					{
+						"selector": "interface",
+						"format": ["PascalCase"],
+						"custom": {
+							"regex": "^I[A-Z]",
+							"match": true
+						}
+					}
+				],
+				"id-length": [
+					"warn",
+					{
+						"min": 3,
+						"exceptions": ["id"]
+					}
+				],
+				"init-declarations": ["warn", "always"],
+				"operator-linebreak": [
+					"warn",
+					"before",
+					{
+						"overrides": {
+							"=": "none",
+							"?": "after",
+							":": "after"
+						}
+					}
+				],
+				"object-curly-newline": [
+					"warn",
+					{
+						"consistent": true
+					}
+				],
+				"no-unused-vars": [
+					"warn",
+					{
+						"vars": "all",
+						"args": "all"
+					}
+				],
+				"default-case-last": ["error"],
+				"no-extra-semi": ["error"]
+			}
+		},
+		{
+			"files": ["*.html"],
+			"extends": ["plugin:@angular-eslint/template/recommended"],
+			"rules": {}
+		}
+	]
+}
