@@ -18,13 +18,13 @@
         </td>
         <td>
           <mat-card-actions>
-            <button mat-icon-button>
-              <mat-icon aria-hidden="false" aria-label="favorite" [fontIcon] ="initialFavotiteData.icon" class="favorite-icon"
-              (click)="onFavoriteBtnClick($event)"></mat-icon>
+            <button mat-icon-button (click)="onFavoriteBtnClick($event)">
+              <mat-icon aria-hidden="false" aria-label="favorite" 
+              [fontIcon] ="initialFavotiteData.icon" class="favorite-icon"></mat-icon>
             </button>
-            <button mat-icon-button>
-              <mat-icon [matBadge]="productCount" matBadgeSize="small" [matBadgeHidden]="shopBagBadgeVisibility" aria-hidden="false" aria-label="favorite" fontIcon ="shopping_cart"
-              (click)="onShopigBagClick($event)"></mat-icon>
+            <button mat-icon-button (click)="onShopigBagClick($event)">
+              <mat-icon [matBadge]="productCount" matBadgeSize="small" 
+              [matBadgeHidden]="shopBagBadgeVisibility" aria-hidden="false" aria-label="favorite" fontIcon ="shopping_cart"></mat-icon>
             </button>
           </mat-card-actions>
         </td>
