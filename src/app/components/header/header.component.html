@@ -5,7 +5,7 @@
 		class="example-icon"
 		(click)="onMenuClick()"
 	>
-	<!-- "onMenuClick()" -> const callback = () => {onMenuClick()} -> addEventListener(..., callback) -->
+		<!-- "onMenuClick()" -> const callback = () => {onMenuClick()} -> addEventListener(..., callback) -->
 		<mat-icon>menu</mat-icon>
 	</button>
 	<img class="shop-icon" [src]="imgSrc" />
@@ -32,9 +32,7 @@
 	>
 		<!-- "onShareClick($event)" -> const callback = ($event) => {onShareClick($event)} -> addEventListener(..., callback) -->
 		<!-- "onShareClick($event)" -> const callback = ($event) => {onShareClick($event); $event.stopPropagation()} -> addEventListener(..., callback) -->
-		<mat-icon>
-			toggle_off
-		</mat-icon>
+		<mat-icon> toggle_off </mat-icon>
 	</button>
 </mat-toolbar>
 
