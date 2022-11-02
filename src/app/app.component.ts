@@ -1,4 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+import { applicationConfigMock } from './shared/application-config/application-config.mock';
 
 @Component({
 	selector: 'app-root', // <app-root></app-root>
@@ -15,22 +16,12 @@ import { Component, ViewEncapsulation } from '@angular/core';
 	// interpolation: ['{{', '}}'],
 })
 export class AppComponent {
-	readonly title = 'Angular-learnjs-171022';
-	// readonly window = window;
+	//readonly title = 'Angular-learnjs-171022';
+	readonly applicationConfig = applicationConfigMock;
 
-	// getTitle(): string {
-	// 	return this.title;
-	// }
+	isDrawerOpened = false;
 
-	// getWindow(): Window {
-	// 	return window;
-	// }
-
-	onKeydown(event: Event) {
-		console.log('onKeydown', event);
-	}
-
-	onAppHeaderClick() {
-		console.log('onAppHeaderClick');
+	onMenuClick() {
+		this.isDrawerOpened = !this.isDrawerOpened;
 	}
 }

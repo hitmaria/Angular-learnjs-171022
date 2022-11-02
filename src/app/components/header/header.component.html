@@ -3,19 +3,19 @@
 		mat-icon-button
 		aria-label="Example icon-button with menu icon"
 		class="example-icon"
-		(click)="onMenuClick()"
+		(click)="menuClick.emit(config.title)"
 	>
 		<!-- "onMenuClick()" -> const callback = () => {onMenuClick()} -> addEventListener(..., callback) -->
 		<mat-icon>menu</mat-icon>
 	</button>
-	<img class="shop-icon" [src]="imgSrc" />
+	<img class="shop-icon" [src]="config.shopIconSrc" />
 	<!-- <img
     [style.borderColor]="'#000'"
     [style.borderWidth.px]="iconWidth"
     [src]="imgSrc"
     class="shop-icon"
     > -->
-	<span>My App</span>
+	<span>{{config.title}}</span>
 	<span class="example-spacer"></span>
 	<button
 		mat-icon-button
@@ -28,11 +28,10 @@
 		mat-icon-button
 		aria-label="Example icon-button with share icon"
 		class="example-icon"
-		(click)="onShareClick(); $event.stopPropagation()"
 	>
 		<!-- "onShareClick($event)" -> const callback = ($event) => {onShareClick($event)} -> addEventListener(..., callback) -->
 		<!-- "onShareClick($event)" -> const callback = ($event) => {onShareClick($event); $event.stopPropagation()} -> addEventListener(..., callback) -->
-		<mat-icon> toggle_off </mat-icon>
+		<mat-icon> share </mat-icon>
 	</button>
 </mat-toolbar>
 

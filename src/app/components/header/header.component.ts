@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { IApplicationConfig } from 'src/app/shared/application-config/application-config.interface';
 
 @Component({
 	selector: 'app-header',
@@ -6,26 +7,8 @@ import { Component, OnInit } from '@angular/core';
 	styleUrls: ['./header.component.less'],
 })
 export class HeaderComponent {
-	readonly imgSrc = '../../../favicon.ico';
-	readonly iconWidth = 100;
+	@Input('applicationConfig') config!: IApplicationConfig;
 
-	get iconStyle(): string {
-		return `width: ${this.iconWidth}px`;
-	}
-
-	getSrc() {
-		console.log('imgSrc');
-
-		return this.imgSrc;
-	}
-
-	onMenuClick() {
-		console.log('onMenuClick');
-	}
-
-	// onShareClick(event: Event) {
-	onShareClick() {
-		console.log('onShareClick');
-		// event.stopPropagation();
-	}
+	@Output() menuClick = new EventEmitter<string>();
+	//	readonly imgSrc = '';
 }
