@@ -1,33 +1,51 @@
 <mat-card class="example-card">
-    <mat-card-header>
-      <mat-card-title class="product-title">{{productTitle}}</mat-card-title>
-    </mat-card-header>
-    <img mat-card-image [src]="productView.url" alt="Изображение товара">
-    <mat-card-content>
-      <p>
-        {{productTitle}}
-      </p>
-    </mat-card-content>
-    <table style="width: 100%">
-      <tr>
-        <td>
-          <mat-icon aria-hidden="false" aria-label="favorite" fontIcon ="sell" class="cost-icon"></mat-icon>
-          <label class="cost-value">
-            {{productCost}}
-          </label>
-        </td>
-        <td>
-          <mat-card-actions>
-            <button mat-icon-button (click)="onFavoriteBtnClick($event)">
-              <mat-icon aria-hidden="false" aria-label="favorite" 
-              [fontIcon] ="initialFavotiteData.icon" class="favorite-icon"></mat-icon>
-            </button>
-            <button mat-icon-button (click)="onShopigBagClick($event)">
-              <mat-icon [matBadge]="productCount" matBadgeSize="small" 
-              [matBadgeHidden]="shopBagBadgeVisibility" aria-hidden="false" aria-label="favorite" fontIcon ="shopping_cart"></mat-icon>
-            </button>
-          </mat-card-actions>
-        </td>
-      </tr>
-    </table>
-  </mat-card>
+	<mat-card-header>
+		<mat-card-title class="product-title">{{
+			product.name
+		}}</mat-card-title>
+	</mat-card-header>
+	<div>
+		<img
+			mat-card-image
+			[src]="product.images[0].url"
+			alt="Изображение товара"
+			class="card-image"
+		/>
+	</div>
+	<mat-card-content>
+		<p>
+			{{ product.name }}
+		</p>
+	</mat-card-content>
+	<div class="grid-container">
+		<div>
+			<mat-icon
+				aria-hidden="false"
+				aria-label="favorite"
+				fontIcon="sell"
+				class="cost-icon"
+			></mat-icon>
+			<label class="cost-value"> {{ product.price }} $ </label>
+		</div>
+		<mat-card-actions>
+			<button mat-icon-button (click)="onFavoriteBtnClick($event)">
+				<mat-icon
+					aria-hidden="false"
+					aria-label="favorite"
+					[fontIcon]="initialFavotiteData.icon"
+					class="favorite-icon"
+				></mat-icon>
+			</button>
+			<button mat-icon-button (click)="onShopigBagClick($event)">
+				<mat-icon
+					[matBadge]="productCount"
+					matBadgeSize="small"
+					[matBadgeHidden]="shopBagBadgeHidden"
+					aria-hidden="false"
+					aria-label="favorite"
+					fontIcon="shopping_cart"
+				></mat-icon>
+			</button>
+		</mat-card-actions>
+	</div>
+</mat-card>

@@ -6,14 +6,8 @@ import { productMock } from '../../../shared/products/product.mock';
 	templateUrl: './product-card.component.html',
 	styleUrls: ['./product-card.component.less'],
 })
-export class ProductCardComponent implements OnInit {
-	constructor() {}
-
-	ngOnInit(): void {}
-
-	readonly productTitle = productMock.name;
-	readonly productView = productMock.images[0];
-	readonly productImageHeightPx = '300';
+export class ProductCardComponent {
+	readonly product = productMock;
 
 	initialFavotiteData = {
 		icon: 'favorite_outline',
@@ -21,35 +15,29 @@ export class ProductCardComponent implements OnInit {
 	};
 
 	productCount = 0;
-	shopBagBadgeVisibility = 'true';
+	shopBagBadgeHidden = true;
 
 	onFavoriteBtnClick(event: Event) {
+		event.stopPropagation();
+
 		if (!this.initialFavotiteData.value) {
 			this.initialFavotiteData.value = true;
 			this.initialFavotiteData.icon = 'favorite';
-		} else {
-			this.initialFavotiteData.value = false;
-			this.initialFavotiteData.icon = 'favorite_outline';
+			return;
 		}
-		event.stopPropagation();
+
+		this.initialFavotiteData.value = false;
+		this.initialFavotiteData.icon = 'favorite_outline';
 	}
 
 	onShopigBagClick(event: Event) {
-		this.productCount++;
+		this.productCount += 1;
 		this.changeShopBagBageVisibility();
 		console.log('Buy');
 		event.stopPropagation();
 	}
 
 	changeShopBagBageVisibility() {
-		if (this.productCount == 0) {
-			this.shopBagBadgeVisibility = 'true';
-		} else {
-			this.shopBagBadgeVisibility = 'false';
-		}
-	}
-
-	get productCost(): string {
-		return `${productMock.price} $`;
+		this.shopBagBadgeHidden = this.productCount === 0;
 	}
 }
