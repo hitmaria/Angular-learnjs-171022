@@ -8,4 +8,8 @@ import { productMock } from 'src/app/shared/products/product.mock';
 })
 export class ProductsListComponent {
 	readonly product = productMock;
+
+	addProductInBag(productID: string) {
+		console.log(`К спискру покупок добавлен товар ${productID}`);
+	}
 }
