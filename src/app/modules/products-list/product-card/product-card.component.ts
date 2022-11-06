@@ -8,7 +8,7 @@ import { productMock } from '../../../shared/products/product.mock';
 	styleUrls: ['./product-card.component.less'],
 })
 export class ProductCardComponent {
-	readonly product = productMock;
+	@Input() product: IProduct | undefined;
 
 	onProductBuy(event: Event) {
 		event.stopPropagation();
@@ -18,5 +18,9 @@ export class ProductCardComponent {
 
 	isStarActive(starIndex: number): boolean {
 		return Boolean(this.product && this.product.rating >= starIndex);
+	}
+
+	get productView(): string | undefined {
+		return this.product?.images[0].url;
 	}
 }
