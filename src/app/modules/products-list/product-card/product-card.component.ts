@@ -9,12 +9,12 @@ import { productMock } from '../../../shared/products/product.mock';
 })
 export class ProductCardComponent {
 	@Input() product: IProduct | undefined;
-	@Output() BuyProduct = new EventEmitter<string>();
+	@Output() buyProduct = new EventEmitter<string | undefined>();
 
 	onProductBuy(event: Event) {
 		event.stopPropagation();
 
-		this.BuyProduct.emit(this.product?._id);
+		this.buyProduct.emit(this.product?._id);
 	}
 
 	isStarActive(starIndex: number): boolean {
