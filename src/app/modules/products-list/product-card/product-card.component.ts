@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
 import { IProduct } from '../../../shared/products/product.interface';
 
 @Component({
@@ -7,10 +7,13 @@ import { IProduct } from '../../../shared/products/product.interface';
 	styleUrls: ['./product-card.component.less'],
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ProductCardComponent {
+export class ProductCardComponent implements OnInit {
 	@Input() product: IProduct | undefined;
 	@Output() productBuy = new EventEmitter<IProduct['_id'] | undefined>();
 
+	ngOnInit() {
+		console.log('ngOnInit');
+	}
 	get firstImgUrl(): string {
 		return this.product?.images[0].url || '';
 	}
